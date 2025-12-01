@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from config import Config
 from api_client import LimitlessClient
-from strategy import SimpleStrategy
+from strategies.crypto_strategy import CryptoPriceStrategy
 
 def main():
     print("Starting Limitless Trading Bot...")
@@ -19,7 +19,7 @@ def main():
         
         # 2. Initialize Strategy
         # We can make this configurable via args later
-        strategy = SimpleStrategy(client)
+        strategy = CryptoPriceStrategy(client)
         print(f"Strategy {strategy.__class__.__name__} initialized.")
         
         # 3. Main Loop
